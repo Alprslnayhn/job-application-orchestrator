@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Resolve symlink to get true physical location of script
+TARGET_FILE="${BASH_SOURCE[0]}"
+while [ -L "$TARGET_FILE" ]; do
+    TARGET_DIR="$(cd -P "$(dirname "$TARGET_FILE")" && pwd)"
+    TARGET_FILE="$(readlink "$TARGET_FILE")"
+    [[ $TARGET_FILE != /* ]] && TARGET_FILE="$TARGET_DIR/$TARGET_FILE"
+done
+SCRIPT_DIR="$(cd -P "$(dirname "$TARGET_FILE")" && pwd)"
+PYTHON_SCRIPT="$SCRIPT_DIR/../src/job_orchestrator.py"
+
+if [ -f "$PYTHON_SCRIPT" ]; then
+    exec python3 "$PYTHON_SCRIPT" "$@"
+else
+    echo "[-] Error: Could not locate job_orchestrator.py at $PYTHON_SCRIPT" >&2
+    exit 1
+fi

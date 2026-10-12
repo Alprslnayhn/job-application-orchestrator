@@ -1,0 +1,6 @@
+{
+  "default_cv": "/path/to/your/Resume_or_CV.pdf",
+  "log_file": "~/.local/share/job-orchestrator/application_history.json",
+  "preferred_browser": "firefox",
+  "preferred_file_manager": "dolphin"
+}
