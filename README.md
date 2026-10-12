@@ -1,4 +1,4 @@
-# 🚀 Job Application Orchestrator (`staj-basvur` / `basvur`)
+# 🚀 Job Application Orchestrator
 
 > **Autonomous, Human-in-the-Loop Job & Research Internship Application Engine for Linux & macOS**  
 > *Bridging AI Coding Assistants, Desktop Environments, and Modern Email Workflows.*
